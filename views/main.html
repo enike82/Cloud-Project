@@ -1,0 +1,63 @@
+{% extends 'base_view.html' %}
+
+{% block page_title %}
+    <title>Instagram - Feeds</title>
+{% endblock %}
+
+{% block instagram_view_header %}
+    <div class="icon"><i class="fas fa-camera fa-2x"></i></div>
+    <div class="app-name">Instagram</div>
+    <div class="icon"><a href="{{url}}"><i class="fas fa-sign-out-alt"></i></a></div>
+{% endblock %}
+
+{% block instagram_view_content %}
+<ul class="posts">
+    {% for post in posts %}
+    <li class="post-item" id="{{post.post.key.id()}}">
+        <div class="post-item-container">
+            <div class="post-header">
+                <div class="post-owner-profile">
+                    <img class="post-profile-img" src="{{post.post_owner_profile_image}}">
+                    <span class="ml-2"><strong>{{post.owner}}</strong></span>
+                </div>
+                <div class="options">
+                    <i class="fas fa-ellipsis-v"></i>
+                </div>
+            </div>
+            <div class="post-image">
+                <img class="post-image" src="{{post.image_url}}">
+            </div>
+            <div class="post-text-contents">
+                <div class="likes-counters"></div>
+                <div class="caption-section text-truncate">
+                    <strong>{{post.owner}}</strong> &nbsp;&nbsp;{{post.post.caption}}
+                </div>
+                <div class="comment-session">
+                    <div class="comments">
+                        <ul style="width: 100%; list-style: none; margin: 0; padding: 0;">
+                            {% for comment in reversed(post.post.comments) %}
+                            {% if loop.index == 1 %} <li style="font-weight: 900; color: #aaa; padding: 5px 0 2px;">Comments</li> {% endif %}
+                            {% if loop.index < 6 %}
+                                <li class="text-truncate post-item"><strong>{{comment.comment_by}}</strong>&nbsp;{{comment.comment}} </li>
+                            {% endif %}
+                            {% if post.post.comments|length >= 6 %}
+                                <a class="more-comment" href="/{{post.post.key.id()}}/view-comments">All comments</a>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <form action="/{{post.post.key.id()}}/add-comment" method="POST" class="add-comment">
+                        <span>
+                            <img class="post-profile-img" src="{{profile_image}}">
+                        </span>
+                        <input type="text" maxlength="200" name="comment_body" class="comment_body" placeholder="Add a comment..." style="width:calc(100% - 120px); padding: 0 10px;">
+                        <button type="submit" class="bg-light text-info" type="submit" style="width: 70px; height: 40px; border: none; outline: none;">Post&nbsp;<i class="fas fa-paper-plane"></i></button>
+                        <span class="text-counter text-secondary"></span>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

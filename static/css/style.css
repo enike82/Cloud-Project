@@ -1,0 +1,569 @@
+@import url('https://fonts.googleapis.com/css2?family=Cookie&display=swap');
+
+* {
+    box-sizing: border-box !important;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+
+    overflow: hidden !important;
+    background: #000;
+
+    font-family: 'Roboto', sans-serif;
+}
+
+.instagram-view {
+    min-width: 320px;
+    max-width: 500px;
+    margin: 0 auto !important;
+    min-height: 100vh !important;
+    overflow: hidden !important;
+
+    background: #fff;
+
+    position: relative;
+}
+
+.header, .footer {
+    width: 100% !important;
+    height: 50px !important;
+
+    position: absolute;
+
+    background-color: #fafcfc;
+}
+
+.header {
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.header div.icon {
+    width: 70px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header div.app-name {
+    width: calc(100% - 140px);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+    padding-left: 0;
+
+    font-family: 'Cookie', cursive;
+    font-size: 30px;
+}
+
+.header .profile-name {
+    width: calc(100% - 70px);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+.footer {
+    bottom: 0;
+    border-top: 1px solid #f0f0f0;
+}
+
+.footer ul {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.footer ul li{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer ul li a {
+    color: #000;
+}
+
+.footer ul li a:hover {
+    color: rgb(45, 76, 175);
+}
+
+.main {
+    width: 100%;
+    height: calc(100vh - 100px);
+    margin: 50px 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.main ul.posts {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main ul.posts .post-item {
+    width: 100%;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #f9f9f9;
+}
+
+.post-item-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.post-header, .post-image, .post-text-contents {
+    width: 100%;
+}
+
+.post-header {
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+}
+
+.post-owner-profile, .post-header .options {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.post-owner-profile {
+    width: calc(100% - 50px);
+    padding-left: 10px;
+
+    display: flex;
+    align-items: center;
+}
+
+.post-profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
+.post-header .options {
+    width: 50px;
+    justify-content: center;
+}
+
+.post-image img {
+    width: 100%;
+}
+
+.post-text-contents {
+    max-height: 250px;
+    margin-bottom: 10px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.jestures {
+    width: 100%;
+    height: 40px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.left-jestures {
+    width: 70%;
+    display: flex;
+    align-items: center;
+}
+
+.right-jestures {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.left-jestures a, .right-jestures a {
+    color: #000;
+    font-size: 20px;
+    padding: 0 10px;
+}
+
+.likes-counters, .caption-section, .comments, .add-comment, .how-long-ago {
+    width: 100%;
+
+    font-size: 12px;
+    padding: 0 10px;
+}
+
+.likes-counters {
+    height: 25px;;
+}
+
+.comment-session {
+    width: 100%;
+}
+
+.comments {
+    min-height: 20px;
+    position: relative;;
+}
+
+.caption-section {
+    max-height: 40px !important;
+    overflow: hidden;
+}
+
+.add-comment {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: relative;
+    margin-top: 10px;
+}
+
+input {
+    border: none;
+    outline: none;
+    font-weight: 900;
+    font-size: 14px;
+    padding-left: 10px;
+
+    width: calc(100% - 60px);
+}
+
+.how-long-ago {
+    font-size: 10px;
+    font-weight: 400;
+    padding-top: 3px;
+
+    color: #888;
+}
+
+.account-status {
+    width: 100%;
+    height: 200px;
+}
+
+.account-status ul {
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.account-status ul li{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    font-weight: 900;
+}
+
+.account-status ul li img.account-profile-image {
+    width: 100px;
+    height: 100px;
+
+    border-radius: 100%;
+}
+
+.image-label {
+    flex-direction: column;
+}
+
+.image-label span {
+    margin-top: 15px;
+    text-transform: capitalize;
+    font-size: 90%;
+}
+
+.edit-profile {
+    display: block;
+    width: 96%;
+    height: 40px;
+
+    margin: 0 2%;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+
+    text-align: center;
+    padding-top: 8px;
+    color: #000;
+}
+
+.follow-button {
+    width: 96%;
+    height: 40px;
+
+    margin: 0 2%;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+
+    color: #000;
+    background: transparent;
+}
+
+.profile-image-upload {
+    width: 100%;
+    height: 230px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-profile-image {
+    width: 120px;
+    height: 120px;
+
+    border-radius: 100%;
+}
+
+.account-details-update {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.create-post-form {
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+}
+
+.post-image, .post-controls {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+.post-image {
+    align-items: center;
+}
+
+.post-controls {
+    position: absolute;
+    top: 0;
+    align-items: flex-end;
+}
+
+.search-panel {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#search, #btn-search {
+    border: none;
+    outline: none;
+    height: 100%;
+}
+
+#btn-search {
+    width: 100px;
+}
+
+#search {
+    width: 100%;
+    background: transparent;
+    font-style: italic;
+    font-weight: 100;
+}
+
+#search-result, .no-account-found {
+    width: 100%;
+}
+
+.no-account-found {
+    height: 200px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.no-account-found span {
+    font-weight: 100;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.account-list {
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.account-list li {
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.account-list li:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.account-list li:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+.account-list li a {
+    display: inline-block;
+    width: 100%;
+
+    color: #000;
+}
+
+.timeline-container {
+    width: 100%;
+}
+
+.timeline-label {
+    width: 100%;
+    height: 50px;
+
+    margin-top: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ul.timeline-list {
+    width: 100%;
+    height: 100%;
+    list-style: none;
+
+    margin: 0 5px;
+    padding: 0;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 5px;
+}
+
+.timeline-item {
+    width: 100%;
+    height: 120px;
+    overflow: hidden;
+}
+
+.timeline-link {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline-link img{
+    width: 100%;
+    height: 100%;
+}
+
+.no-post {
+    width: 100%;
+    height: 200px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #aaa;
+}
+
+.followship-links {
+    color: #000;
+}
+
+.followship-links:hover {
+    text-decoration: none;
+    color: #000;
+}
+
+
+
+
+
+.text-counter {
+    position: absolute;
+    top: 0;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+
+    font-size: 9px;
+}
+
+.more-comment {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+
+    border: 1px solid #aaa;
+    padding: 1px 3px;
+
+    color: #aaa;
+    border-radius: 2px;
+}
+
+.more-comment:hover {
+    text-decoration: none;
+    color: #888;
+    border: 1px solid #888;
+}
+
+.comments {
+    padding-bottom: 20px;
+}

@@ -1,0 +1,24 @@
+{% extends 'base_view.html' %}
+
+{% block page_title %}
+    <title>Instagram - Profile</title>
+{% endblock %}
+
+{% block instagram_view_header %}
+    <div class="search-panel">
+        <input type="search" name="search" id="search" placeholder="Search by username">
+        <button
+            type="button"
+            onclick="updateUserAccountListView(document.getElementById('search').value)"
+            id="btn-search"
+            class="bg-light text-info">
+                Search&nbsp;<i class="fas fa-paper-plane"></i>
+            </button>
+    </div>
+{% endblock %}
+
+{% block instagram_view_content %}
+    <div id="search-result">
+
+    </div>
+{% endblock %}

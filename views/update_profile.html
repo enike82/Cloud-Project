@@ -1,0 +1,73 @@
+{% extends 'base_view.html' %}
+
+{% block page_title %}
+    <title>Instagram - Edit Profile</title>
+{% endblock %}
+
+{% block instagram_view_header %}
+    <div class="profile-name"><strong>Edit Profile</strong></div>
+    <div class="icon"><!--<i class="fas fa-bars fa-2x"></i>--></div>
+{% endblock %}
+
+{% block instagram_view_content %}
+    <div class="account-status">
+       <form class="account-details-update" action="{{edit_profile_url}}" method="POST"  enctype="multipart/form-data" style="width: 100%;">
+            <div class="profile-image-upload">
+                <img
+                    src="{{profile_image}}"
+                    class="edit-profile-image"
+                />
+                <input
+                    type="file"
+                    name="file"
+                    style="width: 150px; margin-top: 20px;"
+                />
+                {% if has_error %}
+                    {% if file %}
+                        <small class="form-text text-danger">{{file}}</small>
+                    {% endif %}
+                {% endif %}
+            </div>
+            <div class="container-fluid mt-3">
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="lastname">Lastname</label>
+                        <input type="text" class="form-control" value="{{ lastname }}"  id="lastname" name="lastname">
+                        {% if has_error %}
+                            {% if not lastname %}
+                                <small class="form-text text-danger">Last Name is required</small>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="firstname">First Name</label>
+                        <input type="text" class="form-control" value="{{ firstname }}"  id="firstname" name="firstname">
+                        {% if has_error %}
+                            {% if not firstname %}
+                                <small class="form-text text-danger">First Name is required</small>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" value="{{ username }}"  id="username" name="username">
+                        {% if has_error %}
+                            {% if not username %}
+                                <small class="form-text text-danger">Username is required</small>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6 offset-md-3 mt-3">
+                        <input type="submit" class="btn btn-block btn-outline-secondary" name="button" value="Save Profile">
+                    </div>
+                </div>
+            </div>
+       </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base_view.html' %}
+
+{% block page_title %}
+    <title>Instagram - Profile</title>
+{% endblock %}
+
+{% block instagram_view_header %}
+    <div class="profile-name"><strong>Comments</strong></div>
+    <div class="icon"><a href="{{url}}"><i class="fas fa-sign-out-alt"></i></a></div>
+{% endblock %}
+
+{% block instagram_view_content %}
+    <div id="search-result">
+        <ul class="account-list">
+            {% for comment in comments %}
+            <li style="padding: 0 10px 20px;">
+                <span style="width: 100%; display: inline-block;font-size: 12px; height: 12px;"><strong>{{comment.comment_by}}</strong></span>
+                <span style="width: 100%; display: inline-block; min-height: 40px;">{{comment.comment}}</span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

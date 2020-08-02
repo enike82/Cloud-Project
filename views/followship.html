@@ -1,0 +1,34 @@
+{% extends 'base_view.html' %}
+
+{% block page_title %}
+    <title>Instagram - follower/following</title>
+{% endblock %}
+
+{% block instagram_view_header %}
+    <div class="profile-name"><strong>{{username}}</strong>&nbsp;&nbsp;-&nbsp;&nbsp;{{option}}</div>
+    <div class="icon"><a href="{{url}}"><i class="fas fa-sign-out-alt"></i></a></div>
+{% endblock %}
+
+{% block instagram_view_content %}
+    <div id="search-result">
+        {% if option_member <= 0 %}
+
+        {% else %}
+            <ul class="account-list">
+                {% for member in option_member %}
+                <li>
+                    {% if my_user.key.id() == member.key.id() %}
+                        <a href="/profile">
+                            <strong>{{member.username}}</strong>
+                        </a>
+                    {% else %}
+                        <a href="/{{member.key.id()}}/others-profile">
+                            <strong>{{member.username}}</strong>
+                        </a>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+{% endblock %}

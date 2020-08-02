@@ -1,0 +1,59 @@
+{% extends 'base_view.html' %}
+
+{% block page_title %}
+    <title>Instagram - Profile</title>
+{% endblock %}
+
+{% block instagram_view_header %}
+    <div class="profile-name"><strong>{{username}}</strong></div>
+    <div class="icon"><a href="{{url}}"><i class="fas fa-sign-out-alt"></i></a></div>
+{% endblock %}
+
+{% block instagram_view_content %}
+    <div class="account-status">
+        <ul>
+            <li class="image-label">
+                <img class="account-profile-image" src="{{profile_image}}">
+                <span>{{fullname}}</span>
+            </li>
+            <li>{{post_count}}<br />Posts</li>
+            <li>
+                <a href="/{{followship_id}}/followship/followers" class="followship-links">
+                    {{followers_count}}<br />Followers
+                </a>
+            </li>
+            <li>
+                <a href="/{{followship_id}}/followship/following" class="followship-links">
+                    {{following_count}}<br />Following
+                </a>
+            </li>
+        </ul>
+        {% if my_user_key %}
+            <form action="/{{my_user_key}}/update-follow" method="POST" style="width: 100%;">
+                <button type="submit" class="follow-button">{% if followed %} <strong>Unfollow</strong> {% else %} <strong>Follow</strong> {% endif %}</button>
+            </form>
+        {% else %}
+            <a class="edit-profile" href="/update-profile"> <strong>Edit Profile</strong></a>
+        {% endif %}
+    </div>
+    <div class="timeline-container">
+        <div class="timeline-label">
+            <strong>Timeline</strong>
+        </div>
+        {% if post_count <= 0 %}
+            <div class="no-post">
+                <strong>No Post</strong>
+            </div>
+        {% else %}
+            <ul class="timeline-list">
+                {% for post in posts %}
+                    <li class="timeline-item">
+                        <a class="timeline-link" href="#">
+                            <img title="{{post.post.post_caption}}" src="{{post.image_url}}">
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+{% endblock %}
