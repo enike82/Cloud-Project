@@ -1,5 +1,4 @@
-# Cloud-Project
-INSTAGRAM REPLICA:
+# INSTAGRAM REPLICA:
 
 
 A simple instagram like app created in college
